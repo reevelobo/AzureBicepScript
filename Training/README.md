@@ -245,3 +245,14 @@ output storageAccountId string= storageAccount.id
 - Run Time validation 
     - This can be achieved using validation deployment mode.
 
+## Best Practices 
+- It doesn't matter where the variables and outputs are defined, but the best practice is to have the variable and parameter on the to and the outputs on the bottom.
+- Variables and parameters should use camel casing.
+- For parameter the valiidation should always be present as it is better to catch errors early before the deployment. 
+- For the location parameter its easier to use the scope function ```resourceGroup().location``` to dynamically get the location of the deployment resourcegroup.
+- Dynamically creating names for resources. ```'${storageAccountShortHand}-${env}-${uniqueString(resourceGroup().id)}```. Here Unique string creates a hash from the resource group ID.
+- Implicit dependencies are always better than explicit dependencies.
+    - For example, if you have a storage account and a role assignment, and the Role Assignment deployment depends on the Storage Account, using the dependsOn is creating and explicit dependency.
+    - Its always better to use the output of the storage account as the implicit dependency.
+- Allways use the @secure() annotation when passing sensitive values to the template. Now this parameter will not be logged anywhere in the deployment logs.
+
