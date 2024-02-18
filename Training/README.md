@@ -228,3 +228,20 @@ output storageAccountId string= storageAccount.id
 - Let's apply this to our bicep template. We have two storage accounts and have individual resources for each one, we could modularise our template by creating a module for the storage account and then use that module in our main template. 
 
 - In this example, we will also explore how we can use a loop to create multiple storage Accounts.
+
+
+## Linting
+
+- The first stage of linting can be done using the bicep extenstion during development.
+- Code linting can also be done as a add step by compiling to ARM template in Pipeline.
+- In addition to the above you can use [ARM-TTK](https://github.com/Azure/arm-ttk) to test the created ARM template
+- Steps To Test
+    - Build ARM template 
+    - Navigate to arm-ttk folder and import the module.
+    ```Import-Module .\arm-ttk.psd1```
+    - Run the following command to test the template.
+    ```Test-AzTemplate -TemplatePath.\azuredeploy.json```
+
+- Run Time validation 
+    - This can be achieved using validation deployment mode.
+
