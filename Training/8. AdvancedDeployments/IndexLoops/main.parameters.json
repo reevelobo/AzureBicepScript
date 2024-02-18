@@ -1,0 +1,24 @@
+{
+  "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    "roleAssigmentID": {
+      "value": "2a2b9908-6ea1-4ae2-8e65-a410df84e7d1"
+    },
+    "adGroupID": {
+      "value": "7c1867d9-a4bc-4b6b-8961-d690ff8a0dda"
+    },
+    "storageAccountNames": {
+      "value": ["stpbiceptest","stbiceptest"]
+    },
+    "storageAccountName": {
+      "value": "stpbiceptest"
+    },
+    "auditStorageAccountName": {
+      "value": "stbiceptestaudit"
+    },
+    "storageAccountsku": {
+      "value": "Standard_LRS"
+    }
+  }
+}
